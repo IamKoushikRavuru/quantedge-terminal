@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 # Configuration
 # ---------------------------------------------------------------------------
 CACHE_DIR = os.path.join(os.path.dirname(__file__), "../../data/cache")
-CACHE_TTL_SECONDS = int(os.getenv("NSE_CACHE_TTL", "30"))  # 30 seconds default
+CACHE_TTL_SECONDS = int(os.getenv("NSE_CACHE_TTL", "60"))  # 60 seconds default
 
 NSE_BASE = "https://www.nseindia.com"
 NSE_OPTION_CHAIN_URL = f"{NSE_BASE}/api/option-chain-indices"
