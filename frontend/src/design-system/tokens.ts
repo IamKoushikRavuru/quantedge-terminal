@@ -1,0 +1,30 @@
+export const COLORS = {
+    bgBase: '#080b0f',
+    bgElevated: '#0d1117',
+    bgCard: '#111820',
+    bgHover: '#161e28',
+    green: '#00d4a0',
+    greenDim: 'rgba(0,212,160,0.15)',
+    red: '#ff4d6d',
+    redDim: 'rgba(255,77,109,0.15)',
+    amber: '#f5a623',
+    amberDim: 'rgba(245,166,35,0.15)',
+    blue: '#4d9fff',
+    blueDim: 'rgba(77,159,255,0.15)',
+    purple: '#b388ff',
+    purpleDim: 'rgba(179,136,255,0.1)',
+    textPrimary: '#e8edf2',
+    textSecondary: '#7a8899',
+    textMuted: '#3d4f62',
+    borderDim: 'rgba(255,255,255,0.06)',
+    borderBright: 'rgba(255,255,255,0.12)',
+} as const;
+
+export const BADGE_COLORS = {
+    green: { bg: COLORS.greenDim, color: COLORS.green, border: 'rgba(0,212,160,0.2)' },
+    red: { bg: COLORS.redDim, color: COLORS.red, border: 'rgba(255,77,109,0.2)' },
+    amber: { bg: COLORS.amberDim, color: COLORS.amber, border: 'rgba(245,166,35,0.2)' },
+    blue: { bg: COLORS.blueDim, color: COLORS.blue, border: 'rgba(77,159,255,0.2)' },
+    purple: { bg: COLORS.purpleDim, color: COLORS.purple, border: 'rgba(179,136,255,0.2)' },
+    muted: { bg: 'rgba(255,255,255,0.04)', color: COLORS.textSecondary, border: COLORS.borderDim },
+} as const;

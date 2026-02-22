@@ -1,0 +1,27 @@
+# Environments
+venv/
+env/
+.env
+
+# Cache
+__pycache__/
+*.pyc
+
+# Local Data
+data/*.db
+data/*.sqlite
+finance.db
+
+# Logs
+logs/
+*.log
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.eslintcache

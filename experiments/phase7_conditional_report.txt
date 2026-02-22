@@ -1,0 +1,21 @@
+Phase 7: Conditional (Regime-Aware) Residual Learning
+=====================================================
+
+[Correlation: rho = -0.2]
+  Pure BS MAE:                 0.159490 (Baseline)
+  Phase 5 (Unconditional) MAE: 0.484707
+  Phase 7 (Conditional) MAE:   1.165508
+  => Phase 5 Improvement vs BS: -203.91%
+  => Phase 7 Improvement vs BS: -630.77%
+
+[Correlation: rho = -0.8]
+  Pure BS MAE:                 0.435921 (Baseline)
+  Phase 5 (Unconditional) MAE: 0.538056
+  Phase 7 (Conditional) MAE:   0.917950
+  => Phase 5 Improvement vs BS: -23.43%
+  => Phase 7 Improvement vs BS: -110.58%
+
+Outcome Interpretation (Case B: Conditioning Fails):
+Explicit regime conditioning drastically worsened the network's predictive stability. While the scalar regime parameters (rho, nu, etc.) were successfully broadcasted to the spatial convolutions, the stochastic PDE structure fundamentally resists naive ML approximation. A 5-dimensional stochastic mapping cannot be learned from N=200 samples by simply appending channels. The network succumbs to severe overfitting on the tiny conditioning space, failing to generalize the highly non-linear geometric warps of the Heston characteristic function.
+
+Conclusion: Theory MUST remain dominant. You cannot 'just add parameters' to bypass the need for rigorous mathematical integration when dealing with interconnected stochastic dynamics.

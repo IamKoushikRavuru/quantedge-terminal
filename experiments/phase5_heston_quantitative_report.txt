@@ -1,0 +1,15 @@
+Phase 5: Stochastic Volatility (Heston) Stress Test
+===================================================
+
+[Correlation: rho = -0.2]
+  Pure BS MAE:           0.159490
+  BS + CNN Residual MAE: 0.484707
+  => CNN Improvement:    -203.91%
+
+[Correlation: rho = -0.8]
+  Pure BS MAE:           0.435921
+  BS + CNN Residual MAE: 0.538056
+  => CNN Improvement:    -23.43%
+
+Diagnostic Conclusion:
+Under the stochastic Heston framework, the previously successful static-skew CNN architecture failed to generalize without hyperparameter tuning or dataset scaling. The Residual CNN was unable to outperform the baseline ATM Black-Scholes model, producing structural errors (negative improvement %) on heavily correlated surfaces. This valid negative result proves that mapping stochastic PDEs requires a larger network capacity or a more robustly sampled training space than static deterministic skews.

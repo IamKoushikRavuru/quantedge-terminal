@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: optiquant-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data          # Persist market data cache
+      - ./experiments:/app/experiments
+    environment:
+      - NSE_CACHE_TTL=${NSE_CACHE_TTL:-300}
+    networks:
+      - optiquant
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+      args:
+        - VITE_API_URL=/api        # Relative — NGINX proxies /api to backend
+    container_name: optiquant-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - optiquant
+
+networks:
+  optiquant:
+    driver: bridge

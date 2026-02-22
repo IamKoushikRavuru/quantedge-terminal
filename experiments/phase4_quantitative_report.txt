@@ -1,0 +1,6 @@
+Phase 4 Metric Outcomes
+-----------------------
+BS MAE:         0.476186
+Full CNN MAE:   0.862570
+Res  CNN MAE:   0.397277
+Improvement:    53.94%

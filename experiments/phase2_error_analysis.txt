@@ -1,0 +1,9 @@
+# Phase 2: Error Surface Analysis
+
+Based on the quantitative error mapping, we observe two main phenomena in the CNN's approximation landscape:
+
+1. **Boundary Effect Errors (Deep ITM / Deep OTM):**
+   The convolution filters lose spatial context at the extreme edges of the strike grid. Because there is no data beyond the minimum and maximum strikes to pad the 3x3 kernels accurately, the residual learning tends to revert slightly towards zero or exhibit minor instabilities at the strict boundaries.
+   
+2. **Short Maturity (T -> 0) Smoothing Errors:**
+   At ultra-short expirations, an option's payoff converges to the intrinsic value max(S-K, 0), which forms a non-differentiable kink at K=S. The Black-Scholes formula naturally handles this via the CDF limits. However, the CNN is inherently a continuous, smooth function approximator. When predicting the residual over this structurally sharp kink, the neural network "rounds out" the corner, causing a localized spike in absolute error directly At-The-Money for T ~ 0.
