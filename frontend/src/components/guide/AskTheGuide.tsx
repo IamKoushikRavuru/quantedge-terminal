@@ -54,7 +54,8 @@ export default function AskTheGuide({ context, onDismiss }: Props) {
     const requestTutorial = useCallback(async (ctxPath: string) => {
         setLoading(true);
         try {
-            const r = await fetch('/api/guide/ask', {
+            const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '';
+            const r = await fetch(`${API_BASE}/api/guide/ask`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ question: "how to use this page", context: ctxPath }),
@@ -96,7 +97,8 @@ export default function AskTheGuide({ context, onDismiss }: Props) {
 
         setLoading(true);
         try {
-            const r = await fetch('/api/guide/ask', {
+            const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '';
+            const r = await fetch(`${API_BASE}/api/guide/ask`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ question: q, context }), // pass context to help routing
