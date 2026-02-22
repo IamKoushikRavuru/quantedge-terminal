@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { fetchMarketOverview } from '../api/client';
 import type { MarketOverview } from '../types';
 import { getUser } from '../hooks/useAuth';
-import { pickQuoteForUser, pickQuoteForDay, QUOTES } from './Onboarding';
+import { pickQuoteForUser, pickQuoteForDay } from './Onboarding';
 
 function Sparkline({ data, color }: { data: number[]; color: string }) {
     if (data.length < 2) {

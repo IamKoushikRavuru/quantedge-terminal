@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { fetchModelComparison } from '../api/client';
 
 export default function ModelComparison() {
