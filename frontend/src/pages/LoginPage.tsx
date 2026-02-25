@@ -26,7 +26,7 @@ export default function LoginPage() {
             const body: Record<string, string> = { email: fields.email, password: fields.password };
             if (tab === 'register') body.name = fields.name;
 
-            const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '';
+            const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://quantedge-terminal.onrender.com';
             const res = await fetch(`${API_BASE}${endpoint}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

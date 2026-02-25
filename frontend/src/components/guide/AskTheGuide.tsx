@@ -54,7 +54,7 @@ export default function AskTheGuide({ context, onDismiss }: Props) {
     const requestTutorial = useCallback(async (ctxPath: string) => {
         setLoading(true);
         try {
-            const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '';
+            const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://quantedge-terminal.onrender.com';
             const r = await fetch(`${API_BASE}/api/guide/ask`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -97,7 +97,7 @@ export default function AskTheGuide({ context, onDismiss }: Props) {
 
         setLoading(true);
         try {
-            const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '';
+            const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://quantedge-terminal.onrender.com';
             const r = await fetch(`${API_BASE}/api/guide/ask`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
